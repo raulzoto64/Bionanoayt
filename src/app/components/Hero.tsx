@@ -14,16 +14,16 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center text-white">
-        <h1 className="text-5xl md:text-7xl mb-6 leading-tight">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-4 sm:mb-6 leading-tight font-bold">
           Innovación y desarrollo de productos de base Bionanotecnológica
         </h1>
-        <p className="text-xl md:text-2xl mb-10 max-w-3xl mx-auto opacity-95">
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 lg:mb-10 max-w-2xl sm:max-w-3xl mx-auto opacity-95 leading-relaxed">
           Soluciones sostenibles diseñadas y manufacturadas en Colombia para revolucionar la industria
         </p>
         <Button 
           size="lg"
-          className="bg-[#19FF00] text-[#1C5D15] hover:bg-[#19FF00]/90 px-8 py-6 text-lg shadow-lg"
+          className="bg-[#19FF00] text-[#1C5D15] hover:bg-[#19FF00]/90 px-5 sm:px-6 py-3 sm:py-4 text-sm sm:text-base shadow-lg transition-all duration-300 transform hover:scale-105"
         >
           Conoce nuestra tecnología patentada
         </Button>

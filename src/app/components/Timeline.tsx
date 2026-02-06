@@ -55,6 +55,9 @@ export function Timeline() {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    swipe: true,
+    swipeToSlide: true,
+    touchMove: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -68,6 +71,8 @@ export function Timeline() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          nextArrow: undefined,
+          prevArrow: undefined,
         }
       }
     ],
@@ -78,25 +83,25 @@ export function Timeline() {
   };
 
   return (
-    <section className="py-20 bg-[#1C5D15] text-white pb-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl text-center mb-16">
+    <section className="py-16 sm:py-20 bg-[#1C5D15] text-white pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-12 sm:mb-16">
           Nuestra Trayectoria
         </h2>
 
-        <div className="relative px-12">
+        <div className="relative px-8 sm:px-12">
           <Slider {...settings}>
             {milestones.map((milestone, index) => (
-              <div key={index} className="px-4">
-                <div className="bg-[#629960]/30 rounded-xl p-6 hover:bg-[#629960]/40 transition-colors h-64 flex flex-col items-center justify-center">
-                  <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-[#19FF00] rounded-full">
-                    <milestone.icon className="w-8 h-8 text-[#1C5D15]" />
+              <div key={index} className="px-3 sm:px-4">
+                <div className="bg-[#629960]/30 rounded-xl p-4 sm:p-6 hover:bg-[#629960]/40 transition-colors h-64 flex flex-col items-center justify-center">
+                  <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-[#19FF00] rounded-full">
+                    <milestone.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#1C5D15]" />
                   </div>
-                  <div className="text-[#19FF00] text-2xl mb-2 text-center">
+                  <div className="text-[#19FF00] text-xl sm:text-2xl mb-1.5 sm:mb-2 text-center">
                     {milestone.year}
                   </div>
-                  <h3 className="text-xl mb-2 text-center">{milestone.title}</h3>
-                  <p className="text-white/80 text-center">{milestone.description}</p>
+                  <h3 className="text-lg sm:text-xl mb-1.5 sm:mb-2 text-center">{milestone.title}</h3>
+                  <p className="text-white/80 text-center text-sm sm:text-base">{milestone.description}</p>
                 </div>
               </div>
             ))}

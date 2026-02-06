@@ -20,16 +20,16 @@ export function Purpose() {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-10">
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           {purposes.map((purpose) => (
             <div key={purpose.title} className="text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 mb-6 rounded-full bg-[#F7F9CE]">
-                <purpose.icon className="w-10 h-10 text-[#1C5D15]" />
+              <div className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-4 sm:mb-6 rounded-full bg-[#F7F9CE]">
+                <purpose.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#1C5D15]" />
               </div>
-              <h3 className="text-2xl mb-4 text-[#1C5D15]">{purpose.title}</h3>
-              <p className="text-[#629960] leading-relaxed">{purpose.description}</p>
+              <h3 className="text-xl sm:text-2xl mb-3 sm:mb-4 text-[#1C5D15]">{purpose.title}</h3>
+              <p className="text-[#629960] leading-relaxed text-sm sm:text-base">{purpose.description}</p>
             </div>
           ))}
         </div>

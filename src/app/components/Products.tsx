@@ -45,34 +45,34 @@ export function Products() {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div className="inline-block px-4 py-2 bg-[#19FF00] text-[#1C5D15] rounded-full mb-4">
+    <section className="py-16 sm:py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 bg-[#19FF00] text-[#1C5D15] rounded-full mb-3 sm:mb-4 text-sm">
             Catálogo
           </div>
-          <h2 className="text-4xl md:text-5xl mb-4 text-[#1C5D15]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 sm:mb-4 text-[#1C5D15]">
             Productos Más Demandados
           </h2>
-          <p className="text-xl text-[#629960] max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-[#629960] max-w-3xl mx-auto">
             Soluciones bionanotecnológicas innovadoras para diferentes industrias
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {products.map((product) => (
             <div 
               key={product.name}
               className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border-2 border-[#629960]/20 hover:border-[#19FF00] group relative flex flex-col"
             >
               {product.popular && (
-                <div className="absolute top-4 right-4 z-10 bg-[#19FF00] text-[#1C5D15] px-3 py-1 rounded-full text-sm">
+                <div className="absolute top-3 right-3 z-10 bg-[#19FF00] text-[#1C5D15] px-2.5 py-1 rounded-full text-xs sm:text-sm">
                   Más Popular
                 </div>
               )}
               
               {/* Product Image */}
-              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-[#1C5D15] to-[#629960]">
+              <div className="relative h-48 sm:h-56 overflow-hidden bg-gradient-to-br from-[#1C5D15] to-[#629960]">
                 <img
                   src={product.image}
                   alt={product.name}
@@ -81,19 +81,19 @@ export function Products() {
               </div>
 
               {/* Product Details */}
-              <div className="p-6 flex flex-col flex-grow">
-                <div className="text-[#629960] text-sm mb-2">{product.category}</div>
-                <h3 className="text-2xl mb-3 text-[#1C5D15]">{product.name}</h3>
-                <p className="text-[#629960] mb-6 leading-relaxed line-clamp-3">
+              <div className="p-4 sm:p-6 flex flex-col flex-grow">
+                <div className="text-[#629960] text-xs sm:text-sm mb-2">{product.category}</div>
+                <h3 className="text-xl sm:text-2xl mb-2 sm:mb-3 text-[#1C5D15]">{product.name}</h3>
+                <p className="text-[#629960] mb-4 sm:mb-6 leading-relaxed line-clamp-3 text-sm sm:text-base">
                   {product.description}
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-6">
                   {product.features.map((feature, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <Check className="w-5 h-5 text-[#19FF00] flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-[#629960]">{feature}</span>
+                      <Check className="w-4 h-4 sm:w-5 sm:h-5 text-[#19FF00] flex-shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-[#629960]">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -101,7 +101,7 @@ export function Products() {
                 {/* CTA Button */}
                 <div className="mt-auto">
                   <Button 
-                    className="w-full bg-[#1C5D15] text-white hover:bg-[#1C5D15]/90 group-hover:bg-[#19FF00] group-hover:text-[#1C5D15] transition-colors"
+                    className="w-full bg-[#1C5D15] text-white hover:bg-[#1C5D15]/90 group-hover:bg-[#19FF00] group-hover:text-[#1C5D15] transition-colors text-sm sm:text-base py-2.5 sm:py-3"
                   >
                     <ShoppingCart className="w-4 h-4 mr-2" />
                     Solicitar Información
@@ -113,11 +113,11 @@ export function Products() {
         </div>
 
         {/* Additional CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-10 sm:mt-12">
           <Button 
             size="lg"
             variant="outline"
-            className="border-[#1C5D15] text-[#1C5D15] hover:bg-[#1C5D15] hover:text-white"
+            className="border-[#1C5D15] text-[#1C5D15] hover:bg-[#1C5D15] hover:text-white text-sm sm:text-base px-5 sm:px-6 py-2.5 sm:py-3"
           >
             Ver Catálogo Completo
           </Button>

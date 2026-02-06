@@ -44,6 +44,9 @@ export function Ecosystem() {
     autoplaySpeed: 3000,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    swipe: true,
+    swipeToSlide: true,
+    touchMove: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -57,6 +60,8 @@ export function Ecosystem() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          nextArrow: undefined,
+          prevArrow: undefined,
         }
       }
     ],
@@ -67,22 +72,22 @@ export function Ecosystem() {
   };
 
   return (
-    <section className="py-20 bg-[#629960]/10 pb-16">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl text-center mb-12 text-[#1C5D15]">
+    <section className="py-16 sm:py-20 bg-[#629960]/10 pb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-10 sm:mb-12 text-[#1C5D15]">
           Ecosistema y Aliados
         </h2>
         
-        <div className="relative px-12">
+        <div className="relative px-8 sm:px-12">
           <Slider {...settings}>
             {allies.map((ally) => (
-              <div key={ally.name} className="px-4">
-                <div className="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow border-2 border-[#629960]/20 hover:border-[#19FF00] group h-72 flex flex-col items-center justify-center">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full border-4 border-[#629960] group-hover:border-[#19FF00] flex items-center justify-center bg-gradient-to-br from-[#1C5D15] to-[#629960] transition-colors">
-                    <span className="text-white text-3xl">{ally.initials}</span>
+              <div key={ally.name} className="px-3 sm:px-4">
+                <div className="bg-white rounded-xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-shadow border-2 border-[#629960]/20 hover:border-[#19FF00] group h-72 flex flex-col items-center justify-center">
+                  <div className="w-28 h-28 sm:w-32 sm:h-32 mx-auto mb-3 sm:mb-4 rounded-full border-4 border-[#629960] group-hover:border-[#19FF00] flex items-center justify-center bg-gradient-to-br from-[#1C5D15] to-[#629960] transition-colors">
+                    <span className="text-white text-2xl sm:text-3xl">{ally.initials}</span>
                   </div>
-                  <h3 className="text-2xl mb-2 text-[#1C5D15]">{ally.name}</h3>
-                  <p className="text-[#629960]">{ally.sector}</p>
+                  <h3 className="text-xl sm:text-2xl mb-1.5 sm:mb-2 text-[#1C5D15]">{ally.name}</h3>
+                  <p className="text-[#629960] text-sm sm:text-base">{ally.sector}</p>
                 </div>
               </div>
             ))}
