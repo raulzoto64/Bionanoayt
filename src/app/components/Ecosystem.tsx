@@ -79,7 +79,7 @@ export function Ecosystem() {
         </h2>
         
         <div className="relative px-8 sm:px-12">
-          <Slider {...settings}>
+          <Slider {...settings} className="ecosystem-slider">
             {allies.map((ally) => (
               <div key={ally.name} className="px-3 sm:px-4">
                 <div className="bg-white rounded-xl p-6 sm:p-8 text-center shadow-lg hover:shadow-xl transition-shadow border-2 border-[#629960]/20 hover:border-[#19FF00] group h-72 flex flex-col items-center justify-center">

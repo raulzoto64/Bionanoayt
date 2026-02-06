@@ -90,7 +90,7 @@ export function Timeline() {
         </h2>
 
         <div className="relative px-8 sm:px-12">
-          <Slider {...settings}>
+          <Slider {...settings} className="timeline-slider">
             {milestones.map((milestone, index) => (
               <div key={index} className="px-3 sm:px-4">
                 <div className="bg-[#629960]/30 rounded-xl p-4 sm:p-6 hover:bg-[#629960]/40 transition-colors h-64 flex flex-col items-center justify-center">

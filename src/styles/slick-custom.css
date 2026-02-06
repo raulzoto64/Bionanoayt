@@ -161,3 +161,13 @@
 .slick-next {
   right: -25px;
 }
+
+/* Hide arrows on mobile */
+@media (max-width: 640px) {
+  .timeline-slider .slick-prev,
+  .timeline-slider .slick-next,
+  .ecosystem-slider .slick-prev,
+  .ecosystem-slider .slick-next {
+    display: none !important;
+  }
+}
