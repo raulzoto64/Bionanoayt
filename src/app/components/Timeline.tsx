@@ -1,113 +1,212 @@
-import { Lightbulb, FileCheck, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
-import Slider from "react-slick";
+import React from "react";
+import {
+  Box,
+  Typography,
+  Paper,
+  useMediaQuery,
+  useTheme,
+  IconButton,
+} from "@mui/material";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Lightbulb,
+  FileCheck,
+  TrendingUp,
+} from "lucide-react";
 
-function NextArrow(props: any) {
-  const { onClick } = props;
+// Swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
+// Estilos base de Swiper
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+const milestones = [
+  {
+    year: "2019",
+    title: "Concepción de la idea",
+    description: "Innovación con propósito",
+    icon: Lightbulb,
+  },
+  {
+    year: "2021",
+    title: "Registro de Patente",
+    description: "Sostenibilidad y liderazgo tecnológico",
+    icon: FileCheck,
+  },
+  {
+    year: "2024-2025",
+    title: "Venta y escalabilidad comercial",
+    description: "BNX y Z-Klean",
+    icon: TrendingUp,
+  },
+  {
+    year: "Futuro",
+    title: "Expansión Internacional",
+    description: "Nuevas fronteras",
+    icon: TrendingUp,
+  },
+];
+
+export function TimelineMUI() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  // Definición de colores según manual de marca
+  const VERDE_VIBRANTE = "#19FF00"; // Representa la bio-regeneración y energía
+  const VERDE_PROFUNDO = "#1C5D15"; // Aporta seriedad, estabilidad y confianza científica
+
   return (
-    <button
-      onClick={onClick}
-      className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#19FF00] rounded-full flex items-center justify-center hover:bg-[#19FF00]/80 transition-colors"
+    <Box
+      sx={{
+        py: 8,
+        bgcolor: VERDE_PROFUNDO,
+        color: "white",
+        textAlign: "center",
+        overflow: "hidden",
+        position: "relative",
+        // Configuración de los indicadores (dots)
+        "& .swiper-pagination-bullet": {
+          width: "10px !important",
+          height: "10px !important",
+          bgcolor: `${VERDE_VIBRANTE} !important`,
+          opacity: "0.3 !important",
+          transition: "all 0.3s ease !important",
+        },
+        "& .swiper-pagination-bullet-active": {
+          bgcolor: `${VERDE_VIBRANTE} !important`,
+          opacity: "1 !important",
+          width: "30px !important",
+          borderRadius: "6px !important",
+        },
+      }}
     >
-      <ChevronRight className="w-6 h-6 text-[#1C5D15]" />
-    </button>
-  );
-}
+      <Typography
+        variant={isMobile ? "h4" : "h2"}
+        sx={{ mb: 6, fontWeight: "bold" }}
+      >
+        Nuestra Trayectoria
+      </Typography>
 
-function PrevArrow(props: any) {
-  const { onClick } = props;
-  return (
-    <button
-      onClick={onClick}
-      className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-[#19FF00] rounded-full flex items-center justify-center hover:bg-[#19FF00]/80 transition-colors"
-    >
-      <ChevronLeft className="w-6 h-6 text-[#1C5D15]" />
-    </button>
-  );
-}
+      <Box
+        sx={{
+          position: "relative",
+          maxWidth: 1100,
+          mx: "auto",
+          px: { xs: 2, md: 0 },
+        }}
+      >
+        {/* Flecha Izquierda */}
+        <IconButton
+          className="timeline-prev"
+          sx={{
+            position: "absolute",
+            left: -60,
+            top: "50%",
+            transform: "translateY(-50%)",
+            bgcolor: VERDE_VIBRANTE,
+            zIndex: 10,
+            width: 35,
+            height: 35,
+            display: isMobile ? "none" : "flex",
+            "&:hover": { bgcolor: VERDE_VIBRANTE, opacity: 0.8 },
+          }}
+        >
+          <ChevronLeft color={VERDE_PROFUNDO} size={20} />
+        </IconButton>
 
-export function Timeline() {
-  const milestones = [
-    {
-      year: "2019",
-      title: "Concepción de la idea",
-      description: "Innovación con propósito",
-      icon: Lightbulb,
-    },
-    {
-      year: "2021",
-      title: "Registro de Patente",
-      description: "Sostenibilidad y liderazgo tecnológico",
-      icon: FileCheck,
-    },
-    {
-      year: "2024-2025",
-      title: "Venta y escalabilidad comercial",
-      description: "BNX y Z-Klean",
-      icon: TrendingUp,
-    },
-  ];
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={30}
+          slidesPerView={isMobile ? 1 : 3}
+          loop={true}
+          navigation={{
+            nextEl: ".timeline-next",
+            prevEl: ".timeline-prev",
+          }}
+          pagination={{
+            clickable: true,
+          }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          style={{ padding: "20px 10px 70px 10px" }}
+        >
+          {milestones.map((item, index) => (
+            <SwiperSlide key={index}>
+              <Paper
+                elevation={0}
+                sx={{
+                  p: 4,
+                  bgcolor: "rgba(98, 153, 96, 0.3)",
+                  borderRadius: 4,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  height: 300,
+                  justifyContent: "center",
+                  border: `1px solid ${VERDE_VIBRANTE}33`,
+                  transition: "0.3s",
+                  "&:hover": {
+                    bgcolor: "rgba(98, 153, 96, 0.4)",
+                    borderColor: VERDE_VIBRANTE,
+                  },
+                }}
+              >
+                <Box
+                  sx={{
+                    bgcolor: VERDE_VIBRANTE,
+                    p: 2,
+                    borderRadius: "50%",
+                    mb: 2,
+                    display: "flex",
+                  }}
+                >
+                  <item.icon size={32} color={VERDE_PROFUNDO} />
+                </Box>
+                <Typography
+                  variant="h5"
+                  sx={{ color: VERDE_VIBRANTE, fontWeight: "bold" }}
+                >
+                  {item.year}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  sx={{ color: "white", my: 1, fontSize: "1.1rem" }}
+                >
+                  {item.title}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "rgba(255,255,255,0.8)" }}
+                >
+                  {item.description}
+                </Typography>
+              </Paper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    swipe: true,
-    swipeToSlide: true,
-    touchMove: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 640,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          nextArrow: undefined,
-          prevArrow: undefined,
-        }
-      }
-    ],
-    dotsClass: "slick-dots !bottom-[-40px]",
-    customPaging: () => (
-      <div className="w-3 h-3 bg-[#19FF00]/30 rounded-full hover:bg-[#19FF00] transition-colors" />
-    ),
-  };
-
-  return (
-    <section className="py-16 sm:py-20 bg-[#1C5D15] text-white pb-16">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-12 sm:mb-16">
-          Nuestra Trayectoria
-        </h2>
-
-        <div className="relative px-8 sm:px-12">
-          <Slider {...settings} className="timeline-slider">
-            {milestones.map((milestone, index) => (
-              <div key={index} className="px-3 sm:px-4">
-                <div className="bg-[#629960]/30 rounded-xl p-4 sm:p-6 hover:bg-[#629960]/40 transition-colors h-64 flex flex-col items-center justify-center">
-                  <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 bg-[#19FF00] rounded-full">
-                    <milestone.icon className="w-7 h-7 sm:w-8 sm:h-8 text-[#1C5D15]" />
-                  </div>
-                  <div className="text-[#19FF00] text-xl sm:text-2xl mb-1.5 sm:mb-2 text-center">
-                    {milestone.year}
-                  </div>
-                  <h3 className="text-lg sm:text-xl mb-1.5 sm:mb-2 text-center">{milestone.title}</h3>
-                  <p className="text-white/80 text-center text-sm sm:text-base">{milestone.description}</p>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </div>
-    </section>
+        {/* Flecha Derecha */}
+        <IconButton
+          className="timeline-next"
+          sx={{
+            position: "absolute",
+            right: -60,
+            top: "50%",
+            transform: "translateY(-50%)",
+            bgcolor: VERDE_VIBRANTE,
+            zIndex: 10,
+            width: 35,
+            height: 35,
+            display: isMobile ? "none" : "flex",
+            "&:hover": { bgcolor: VERDE_VIBRANTE, opacity: 0.8 },
+          }}
+        >
+          <ChevronRight color={VERDE_PROFUNDO} size={20} />
+        </IconButton>
+      </Box>
+    </Box>
   );
 }

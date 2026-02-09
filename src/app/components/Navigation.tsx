@@ -38,11 +38,19 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-[#19FF00] rounded-full flex items-center justify-center">
-              <span className="text-[#1C5D15] font-bold text-xl">A&T</span>
-            </div>
-            <span className="text-xl hidden sm:block">A&T BioNano</span>
+          <Link
+            to="/"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+          >
+            <img
+              src="images/isoLogo.png"
+              alt="A&T BioNano Logo"
+              className="w-10 h-10 object-contain"
+            />
+            {/* Eliminamos 'hidden sm:block' para que siempre sea visible */}
+            <span className="text-lg sm:text-xl font-semibold">
+              BioNano A&T
+            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -105,8 +113,8 @@ export function Navigation() {
             </DropdownMenu>
 
             {/* Tienda */}
-            <Link 
-              to="/store" 
+            <Link
+              to="/store"
               className="hover:text-[#19FF00] transition-colors"
             >
               Tienda
@@ -122,7 +130,7 @@ export function Navigation() {
               >
                 <ShoppingCart className="w-5 h-5" />
               </Button>
-              
+
               <Button
                 size="sm"
                 className="bg-[#19FF00] text-[#1C5D15] hover:bg-[#19FF00]/90"
@@ -139,7 +147,11 @@ export function Navigation() {
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
@@ -147,14 +159,14 @@ export function Navigation() {
         {mobileMenuOpen && (
           <div className="md:hidden py-4 border-t border-[#629960]">
             <div className="flex flex-col gap-4">
-              <Link 
-                to="/" 
+              <Link
+                to="/"
                 className="hover:text-[#19FF00] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Inicio
               </Link>
-              <button 
+              <button
                 className="hover:text-[#19FF00] transition-colors text-left"
                 onClick={() => {
                   scrollToSection("purpose");
@@ -163,7 +175,7 @@ export function Navigation() {
               >
                 Propósito empresarial
               </button>
-              <button 
+              <button
                 className="hover:text-[#19FF00] transition-colors text-left"
                 onClick={() => {
                   scrollToSection("team");
@@ -172,7 +184,7 @@ export function Navigation() {
               >
                 Equipo de trabajo
               </button>
-              <button 
+              <button
                 className="hover:text-[#19FF00] transition-colors text-left"
                 onClick={() => {
                   scrollToSection("products");
@@ -181,22 +193,22 @@ export function Navigation() {
               >
                 Productos
               </button>
-              <Link 
-                to="/technology" 
+              <Link
+                to="/technology"
                 className="hover:text-[#19FF00] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Tecnología
               </Link>
-              <Link 
-                to="/store" 
+              <Link
+                to="/store"
                 className="hover:text-[#19FF00] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Tienda
               </Link>
-              <Link 
-                to="/login" 
+              <Link
+                to="/login"
                 className="hover:text-[#19FF00] transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
